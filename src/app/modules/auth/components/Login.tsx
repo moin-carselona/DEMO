@@ -44,17 +44,21 @@ export function Login() {
         // const { data: user } = await getUserByToken(auth.api_token)        
         // setCurrentUser(user)
         const payload = {
-          email: values.email,
-          password: values.password,
+          email: "moin@gmail.com",
+          password: "moin@123",
         }
+        // const payload = {
+        //   email: values.email,
+        //   password: values.password,
+        // }
         const response = await handleLogin(payload);
         if (response.status === 200) {
           localStorage.setItem(Constants.token, response.authToken);
           localStorage.setItem(Constants.user, JSON.stringify(response.id));
           // localStorage.setItem("userData", JSON.stringify(response.data.id));
           setLoggedIn(true);
-          Navigate("/dashboard")
-          // window.location.href = '/dashboard';
+          // Navigate("/dashboard")
+          window.location.href = '/dashboard';
           // if(isLoggedIn){
           //   Navigate("/dashboard")
           // }
@@ -77,13 +81,14 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In to {Constants.companyName}</h1>
-        <div className='text-gray-400 fw-bold fs-4'>
+        {/* <h1 className='text-dark mb-3'>Sign In to {Constants.companyName}</h1> */}
+        <h1 className='text-dark mb-3'>Welcome To Pie Tech YT</h1>
+        {/* <div className='text-gray-400 fw-bold fs-4'>
           New Here?{' '}
           <Link to='/auth/registration' className='link-primary fw-bolder'>
             Create an Account
           </Link>
-        </div>
+        </div> */}
       </div>
       {/* begin::Heading */}
       {formik.status ? (
@@ -100,7 +105,7 @@ export function Login() {
         // </div>
       )}
       {/* begin::Form group */}
-      <div className='fv-row mb-10'>
+      {/* <div className='fv-row mb-10'>
         <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
         <input
           placeholder='Email'
@@ -121,16 +126,13 @@ export function Login() {
             <span role='alert'>{formik.errors.email}</span>
           </div>
         )}
-      </div>
+      </div> */}
       {/* end::Form group */}
       {/* begin::Form group */}
-      <div className='fv-row mb-10'>
+      {/* <div className='fv-row mb-10'>
         <div className='d-flex justify-content-between mt-n5'>
           <div className='d-flex flex-stack mb-2'>
-            {/* begin::Label */}
             <label className='form-label fw-bolder text-dark fs-6 mb-0'>Password</label>
-            {/* end::Label */}
-            {/* begin::Link */}
             <Link
               to='/auth/forgot-password'
               className='link-primary fs-6 fw-bolder'
@@ -138,7 +140,6 @@ export function Login() {
             >
               Forgot Password ?
             </Link>
-            {/* end::Link */}
           </div>
         </div>
         <input
@@ -162,7 +163,7 @@ export function Login() {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
       {/* end::Form group */}
       {/* begin::Action */}
       <div className='text-center'>
@@ -170,9 +171,9 @@ export function Login() {
           type='submit'
           id='kt_sign_in_submit'
           className='btn btn-lg btn-primary w-100 mb-5'
-          disabled={formik.isSubmitting || !formik.isValid}
+          // disabled={formik.isSubmitting || !formik.isValid}
         >
-          {!loading && <span className='indicator-label text-capitalize'>login</span>}
+          {!loading && <span className='indicator-label text-capitalize'>Continue</span>}
           {loading && (
             <span className='indicator-progress' style={{ display: 'block' }}>
               Please wait...

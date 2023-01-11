@@ -19,7 +19,7 @@ export function login(email: string, password: string) {
   })
 }
 export async function handleLogin(payload: LoginModel) {
-  const response = await axios.post(LOGIN_URL, payload);
+  // const response = await axios.post(LOGIN_URL, payload);
 
   return {
     status :200,
