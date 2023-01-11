@@ -1,10 +1,8 @@
-[data-column-id='ID'].rdt_TableCol {
-  /* background-color: green; */
+/* [data-column-id='ID'].rdt_TableCol {
   font-weight: 500;
   width: 30px;
 }
 [data-column-class='commoncss'].rdt_TableCol {
-  /* background-color: green; */
   font-weight: 500;
 }
 [data-column-id='director'].rdt_TableCol {
@@ -22,12 +20,10 @@
 
 
 [data-column-id="ID"].rdt_TableCol {
-  /* background-color: green; */
   font-weight: 500;
   width: 30px;
 }
 [data-column-class="commoncss"].rdt_TableCol {
-  /* background-color: green; */
   font-weight: 500;
 }
 [data-column-id="director"].rdt_TableCol {
@@ -39,4 +35,4 @@
   z-index: 99999999999 !important;
 } 
 
-
+ */
