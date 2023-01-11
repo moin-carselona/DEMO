@@ -11,6 +11,8 @@ export const REQUEST_NOTIFICATION_URL = `${API_NOTIFICATION_URL}/api/paritosh/ad
 export const SEND_TEMPLATE_TO_SERVER = `${API_NOTIFICATION_URL}/api/paritosh/admin/createMasterNotificationTemplate`
 // Server should return AuthModel
 export function login(email: string, password: string) {
+  console.log('password', password);
+  console.log('email', email);
   return axios.post<AuthModel>(LOGIN_URL, {
     email,
     password,
@@ -19,7 +21,11 @@ export function login(email: string, password: string) {
 export async function handleLogin(payload: LoginModel) {
   const response = await axios.post(LOGIN_URL, payload);
 
-  return response.data;
+  return {
+    status :200,
+    authToken:"fsdfhshfsjhdfkjshdfkjhskfjhdskjfs",
+    id:788
+  }
 }
 // Server should return AuthModel
 export function register(
