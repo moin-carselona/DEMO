@@ -48,16 +48,16 @@ export function Login() {
           password: values.password,
         }
         const response = await handleLogin(payload);
-        console.log('response', response);
         if (response.status === 200) {
           localStorage.setItem(Constants.token, response.authToken);
           localStorage.setItem(Constants.user, JSON.stringify(response.id));
           // localStorage.setItem("userData", JSON.stringify(response.data.id));
           setLoggedIn(true);
-          window.location.href = '/dashboard';
-// if(isLoggedIn){
-//   Navigate("/dashboard")
-// }
+          Navigate("/dashboard")
+          // window.location.href = '/dashboard';
+          // if(isLoggedIn){
+          //   Navigate("/dashboard")
+          // }
         }
       } catch (error) {
         console.error(error)
