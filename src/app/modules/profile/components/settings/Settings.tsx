@@ -8,7 +8,7 @@ export function Settings() {
     setData(updatedData)
   }
 
-  return (
+  return (  
     <div className='card'>
       {/* begin::Form*/}
       <form className='form d-flex flex-center'>

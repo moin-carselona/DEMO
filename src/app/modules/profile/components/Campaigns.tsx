@@ -27,7 +27,7 @@ export function Campaigns() {
             </select>
           </div>
           <button className='btn btn-primary btn-sm' data-bs-toggle='tooltip' title='Coming soon'>
-            Add Campaign
+            Add Campaignsss
           </button>
         </div>
       </div>

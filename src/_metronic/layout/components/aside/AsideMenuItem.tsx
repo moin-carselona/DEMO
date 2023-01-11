@@ -23,6 +23,7 @@ const AsideMenuItem: FC<Props & WithChildren> = ({
 }) => {
   const {pathname} = useLocation()
   const isActive = checkIsActive(pathname, to)
+  // console.log('to===============================', to);
   const {config} = useLayout()
   const {aside} = config
 
@@ -33,6 +34,7 @@ const AsideMenuItem: FC<Props & WithChildren> = ({
           <span className='menu-bullet'>
             <span className='bullet bullet-dot'></span>
           </span>
+          
         )}
         {icon && aside.menuIcon === 'svg' && (
           <span className='menu-icon'>

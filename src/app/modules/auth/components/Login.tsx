@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {useState} from 'react'
+import { useState } from 'react'
 import * as Yup from 'yup'
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
-import {useFormik} from 'formik'
-import {getUserByToken, login} from '../core/_requests'
-import {toAbsoluteUrl} from '../../../../_metronic/helpers'
-import {useAuth} from '../core/Auth'
+import { Link, useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import { getUserByToken, handleLogin, login } from '../core/_requests'
+import { toAbsoluteUrl } from '../../../../_metronic/helpers'
+import { useAuth } from '../core/Auth'
+import Constants from '../../../consts/Consts'
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -21,8 +22,8 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'admin@demo.com',
-  password: 'demo',
+  email: 'pritesh@carselonadaily.in',
+  password: '123456',
 }
 
 /*
@@ -32,19 +33,39 @@ const initialValues = {
 */
 
 export function Login() {
-  const [loading, setLoading] = useState(false)
-  const {saveAuth, setCurrentUser} = useAuth()
+  const Navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const { saveAuth, setCurrentUser } = useAuth()
 
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: async (values, {setStatus, setSubmitting}) => {
+    onSubmit: async (values, { setStatus, setSubmitting }) => {
       setLoading(true)
       try {
-        const {data: auth} = await login(values.email, values.password)
-        saveAuth(auth)
-        const {data: user} = await getUserByToken(auth.api_token)
-        setCurrentUser(user)
+        // const { data: auth } = await login(values.email, values.password)        
+        // saveAuth(auth)
+        // const { data: user } = await getUserByToken(auth.api_token)        
+        // setCurrentUser(user)
+        const payload = {
+          email: values.email,
+          password: values.password,
+        }
+        const response = await handleLogin(payload);
+        if (response.status === 200) {
+          localStorage.setItem(Constants.token, response.authToken);
+          localStorage.setItem(Constants.user, JSON.stringify(response.data.id));
+          // localStorage.setItem("userData", JSON.stringify(response.data.id));
+
+          setLoggedIn(true);
+          window.location.href = '/dashboard';
+// if(isLoggedIn){
+//   Navigate("/dashboard")
+
+// }
+
+        }
       } catch (error) {
         console.error(error)
         saveAuth(undefined)
@@ -64,7 +85,7 @@ export function Login() {
     >
       {/* begin::Heading */}
       <div className='text-center mb-10'>
-        <h1 className='text-dark mb-3'>Sign In to Metronic</h1>
+        <h1 className='text-dark mb-3'>Sign In to {Constants.companyName}</h1>
         <div className='text-gray-400 fw-bold fs-4'>
           New Here?{' '}
           <Link to='/auth/registration' className='link-primary fw-bolder'>
@@ -79,12 +100,13 @@ export function Login() {
           <div className='alert-text font-weight-bold'>{formik.status}</div>
         </div>
       ) : (
-        <div className='mb-10 bg-light-info p-8 rounded'>
-          <div className='text-info'>
-            Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to
-            continue.
-          </div>
-        </div>
+        <></>
+        // <div className='mb-10 bg-light-info p-8 rounded'>
+        //   <div className='text-info'>
+        //     Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to
+        //     continue.
+        //   </div>
+        // </div>
       )}
 
       {/* begin::Form group */}
@@ -95,7 +117,7 @@ export function Login() {
           {...formik.getFieldProps('email')}
           className={clsx(
             'form-control form-control-lg form-control-solid',
-            {'is-invalid': formik.touched.email && formik.errors.email},
+            { 'is-invalid': formik.touched.email && formik.errors.email },
             {
               'is-valid': formik.touched.email && !formik.errors.email,
             }
@@ -123,7 +145,7 @@ export function Login() {
             <Link
               to='/auth/forgot-password'
               className='link-primary fs-6 fw-bolder'
-              style={{marginLeft: '5px'}}
+              style={{ marginLeft: '5px' }}
             >
               Forgot Password ?
             </Link>
@@ -162,9 +184,9 @@ export function Login() {
           className='btn btn-lg btn-primary w-100 mb-5'
           disabled={formik.isSubmitting || !formik.isValid}
         >
-          {!loading && <span className='indicator-label'>Continue</span>}
+          {!loading && <span className='indicator-label text-capitalize'>login</span>}
           {loading && (
-            <span className='indicator-progress' style={{display: 'block'}}>
+            <span className='indicator-progress' style={{ display: 'block' }}>
               Please wait...
               <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
             </span>
@@ -172,40 +194,40 @@ export function Login() {
         </button>
 
         {/* begin::Separator */}
-        <div className='text-center text-muted text-uppercase fw-bolder mb-5'>or</div>
+        {/* <div className='text-center text-muted text-uppercase fw-bolder mb-5'>or</div> */}
         {/* end::Separator */}
 
         {/* begin::Google link */}
-        <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100 mb-5'>
-          <img
-            alt='Logo'
-            src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
-            className='h-20px me-3'
-          />
-          Continue with Google
-        </a>
+        {/* <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100 mb-5'>
+            <img
+              alt='Logo'
+              src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
+              className='h-20px me-3'
+            />
+            Continue with Google
+          </a> */}
         {/* end::Google link */}
 
         {/* begin::Google link */}
-        <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100 mb-5'>
+        {/* <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100 mb-5'>
           <img
             alt='Logo'
             src={toAbsoluteUrl('/media/svg/brand-logos/facebook-4.svg')}
             className='h-20px me-3'
           />
           Continue with Facebook
-        </a>
+        </a> */}
         {/* end::Google link */}
 
         {/* begin::Google link */}
-        <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100'>
+        {/* <a href='#' className='btn btn-flex flex-center btn-light btn-lg w-100'>
           <img
             alt='Logo'
             src={toAbsoluteUrl('/media/svg/brand-logos/apple-black.svg')}
             className='h-20px me-3'
           />
           Continue with Apple
-        </a>
+        </a> */}
         {/* end::Google link */}
       </div>
       {/* end::Action */}

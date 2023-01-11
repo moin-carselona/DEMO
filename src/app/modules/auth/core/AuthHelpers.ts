@@ -1,3 +1,4 @@
+import Constants from '../../../consts/Consts'
 import {AuthModel} from './_models'
 
 const AUTH_LOCAL_STORAGE_KEY = 'kt-auth-react-v'
@@ -13,6 +14,27 @@ const getAuth = (): AuthModel | undefined => {
 
   try {
     const auth: AuthModel = JSON.parse(lsValue) as AuthModel
+    if (auth) {
+      // You can easily check auth_token expiration also
+      return auth
+    }
+  } catch (error) {
+    console.error('AUTH LOCAL STORAGE PARSE ERROR', error)
+  }
+}
+
+const authenticate = (): AuthModel | undefined | string => {
+  if (!localStorage) {
+    return
+  }
+
+  const lsValue: string | null = localStorage.getItem(`${Constants.token}`)
+  if (!lsValue) {
+    return
+  }
+
+  try {
+    const auth: string = lsValue;
     if (auth) {
       // You can easily check auth_token expiration also
       return auth
@@ -62,4 +84,4 @@ export function setupAxios(axios: any) {
   )
 }
 
-export {getAuth, setAuth, removeAuth, AUTH_LOCAL_STORAGE_KEY}
+export {getAuth, setAuth, removeAuth, authenticate, AUTH_LOCAL_STORAGE_KEY}

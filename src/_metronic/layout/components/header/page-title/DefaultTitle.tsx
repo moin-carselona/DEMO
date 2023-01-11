@@ -39,6 +39,7 @@ const DefaultTitle: FC = () => {
             )}
             <ul className='breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1'>
               {Array.from(pageBreadcrumbs).map((item, index) => (
+
                 <li
                   className={clsx('breadcrumb-item', {
                     'text-dark': !item.isSeparator && item.isActive,

@@ -141,3 +141,4 @@ export const notifications: INotifications = {
 export const deactivateAccount: IDeactivateAccount = {
   confirm: false,
 }
+

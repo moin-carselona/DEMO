@@ -1,10 +1,9 @@
-import {FC} from 'react'
+import React, {FC} from 'react'
 import {MenuInner} from './MenuInner'
 
 const Header: FC = () => {
   return (
     <div
-      id='kt_header_menu'
       className='header-menu align-items-stretch'
       data-kt-drawer='true'
       data-kt-drawer-name='header-menu'

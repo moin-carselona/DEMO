@@ -28,15 +28,16 @@ const getThemeModeFromLocalStorage = (lsKey: string): ThemeModeType => {
   }
 
   const data = localStorage.getItem(lsKey)
-  if (data === 'dark' || data === 'light' || data === 'system') {
-    return data
+  if (!data) {
+    return 'light'
   }
 
-  if (document.documentElement.hasAttribute('data-theme')) {
-    const dataTheme = document.documentElement.getAttribute('data-theme')
-    if (dataTheme && (dataTheme === 'dark' || dataTheme === 'light' || dataTheme === 'system')) {
-      return dataTheme
-    }
+  if (data === 'light') {
+    return 'light'
+  }
+
+  if (data === 'dark') {
+    return 'dark'
   }
 
   return 'system'
@@ -62,30 +63,28 @@ const ThemeModeProvider = ({children}: {children: React.ReactNode}) => {
   const [mode, setMode] = useState<ThemeModeType>(defaultThemeMode.mode)
   const [menuMode, setMenuMode] = useState<ThemeModeType>(defaultThemeMode.menuMode)
 
-  const updateMode = (_mode: ThemeModeType, saveInLocalStorage: boolean = true) => {
-    setMode(_mode)
+  const updateMode = (_mode: ThemeModeType) => {
+    const updatedMode = _mode === 'system' ? systemMode : _mode
+    setMode(updatedMode)
     // themeModeSwitchHelper(updatedMode)
-    if (saveInLocalStorage && localStorage) {
-      localStorage.setItem(themeModeLSKey, _mode)
+    if (localStorage) {
+      localStorage.setItem(themeModeLSKey, updatedMode)
     }
 
-    if (saveInLocalStorage) {
-      const updatedMode = _mode === 'system' ? systemMode : _mode
-      document.documentElement.setAttribute('data-theme', updatedMode)
-    }
+    document.documentElement.setAttribute('data-theme', updatedMode)
     ThemeModeComponent.init()
   }
 
-  const updateMenuMode = (_menuMode: ThemeModeType, saveInLocalStorage: boolean = true) => {
+  const updateMenuMode = (_menuMode: ThemeModeType) => {
     setMenuMode(_menuMode)
-    if (saveInLocalStorage && localStorage) {
+    if (localStorage) {
       localStorage.setItem(themeMenuModeLSKey, _menuMode)
     }
   }
 
   useEffect(() => {
-    updateMode(mode, false)
-    updateMenuMode(menuMode, false)
+    updateMode(mode)
+    updateMenuMode(menuMode)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

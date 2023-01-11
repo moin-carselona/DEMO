@@ -13,8 +13,9 @@ import {
 import {getUsers} from './_requests'
 import {User} from './_models'
 import {useQueryRequest} from './QueryRequestProvider'
+import { Stats } from './_stats'
 
-const QueryResponseContext = createResponseContext<User>(initialQueryResponse)
+const QueryResponseContext = createResponseContext<Stats>(initialQueryResponse)
 const QueryResponseProvider: FC<WithChildren> = ({children}) => {
   const {state} = useQueryRequest()
   const [query, setQuery] = useState<string>(stringifyRequestQuery(state))
@@ -32,8 +33,8 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
     data: response,
   } = useQuery(
     `${QUERIES.USERS_LIST}-${query}`,
-    () => {
-      return getUsers(query)
+    async () => {
+      return await getUsers(query)
     },
     {cacheTime: 0, keepPreviousData: true, refetchOnWindowFocus: false}
   )
@@ -48,12 +49,12 @@ const QueryResponseProvider: FC<WithChildren> = ({children}) => {
 const useQueryResponse = () => useContext(QueryResponseContext)
 
 const useQueryResponseData = () => {
-  const {response} = useQueryResponse()
+  const {response}: any = useQueryResponse()
   if (!response) {
     return []
   }
-
-  return response?.data || []
+  console.log("response12", response);
+  return response?.data[0].activeSubscriptions || []
 }
 
 const useQueryResponsePagination = () => {

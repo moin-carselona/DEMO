@@ -1,4 +1,3 @@
-import {Tab} from 'bootstrap'
 import {useEffect, useRef} from 'react'
 import {
   MenuComponent,
@@ -9,7 +8,7 @@ import {
   ToggleComponent,
   SwapperComponent,
 } from '../assets/ts/components'
-import {ThemeModeComponent} from '../assets/ts/layout'
+import { ThemeModeComponent } from '../assets/ts/layout'
 
 import {useLayout} from './core'
 
@@ -27,9 +26,6 @@ export function MasterInit() {
       MenuComponent.bootstrap()
       ScrollComponent.bootstrap()
       SwapperComponent.bootstrap()
-      document.querySelectorAll('[data-bs-toggle="tab"]').forEach((tab) => {
-        Tab.getOrCreateInstance(tab)
-      })
     }, 500)
   }
 

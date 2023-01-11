@@ -3,12 +3,13 @@ import {ID, Response} from '../../../../../../_metronic/helpers'
 import {User, UsersQueryResponse} from './_models'
 
 const API_URL = process.env.REACT_APP_THEME_API_URL
+const STATS_URL = process.env.REACT_APP_API_URL
 const USER_URL = `${API_URL}/user`
 const GET_USERS_URL = `${API_URL}/users/query`
 
-const getUsers = (query: string): Promise<UsersQueryResponse> => {
+const getUsers = async (query: string): Promise<UsersQueryResponse> => {
   return axios
-    .get(`${GET_USERS_URL}?${query}`)
+    .post(`https://adminapi.carselonadaily.com/api/admin/getCustomerStats`, {startDate: '2022-08-12'})
     .then((d: AxiosResponse<UsersQueryResponse>) => d.data)
 }
 

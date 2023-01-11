@@ -11,7 +11,7 @@ type Props = {
 }
 
 const MixedWidget10: React.FC<Props> = ({className, chartColor, chartHeight}) => {
-  const chartRef = useRef<HTMLDivElement | null>(null)
+  const chartRef = useRef(null)
   const {mode} = useThemeMode()
   const refreshChart = () => {
     if (!chartRef.current) {

@@ -48,3 +48,15 @@ canvas {
 router-outlet {
     display: none;
 }
+
+.stats-link {
+    font-size: 1em;
+    color: black;
+}
+
+.stat-links .active {
+    color: #009ef7 !important;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

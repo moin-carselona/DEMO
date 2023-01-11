@@ -10,7 +10,7 @@ export function Account() {
     const updatedData = {...data, ...fieldsToUpdate}
     setData(updatedData)
   }
-
+//moin
   return (
     <div className='card'>
       {/* begin::Form */}

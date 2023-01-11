@@ -84,7 +84,7 @@ const ListsWidget5: React.FC<Props> = ({className}) => {
             <div className='timeline-content fw-bold text-gray-800 ps-3'>
               Make deposit
               <a href='#' className='text-primary'>
-                USD 700
+                 USD 700
               </a>
               . to ESL
             </div>

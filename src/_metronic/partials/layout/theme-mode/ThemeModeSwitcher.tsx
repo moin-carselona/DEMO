@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import {KTSVG} from '../../../helpers'
-import {ThemeModeComponent} from '../../../assets/ts/layout'
 import {ThemeModeType, useThemeMode} from './ThemeModeProvider'
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -11,8 +10,6 @@ type Props = {
   menuTrigger?: string
 }
 
-const systemMode = ThemeModeComponent.getSystemMode() as 'light' | 'dark'
-
 const ThemeModeSwitcher = ({
   toggleBtnClass = '',
   toggleBtnIconClass = 'svg-icon-2',
@@ -20,7 +17,6 @@ const ThemeModeSwitcher = ({
   menuTrigger = "{default: 'click', lg: 'hover'}",
 }: Props) => {
   const {mode, menuMode, updateMode, updateMenuMode} = useThemeMode()
-  const calculatedMode = mode === 'system' ? systemMode : mode
   const switchMode = (_mode: ThemeModeType) => {
     updateMenuMode(_mode)
     updateMode(_mode)
@@ -36,14 +32,14 @@ const ThemeModeSwitcher = ({
         data-kt-menu-attach='parent'
         data-kt-menu-placement={menuPlacement}
       >
-        {calculatedMode === 'dark' && (
+        {mode === 'dark' && (
           <KTSVG
             path='/media/icons/duotune/general/gen061.svg'
             className={clsx('theme-light-hide', toggleBtnIconClass)}
           />
         )}
 
-        {calculatedMode === 'light' && (
+        {mode === 'light' && (
           <KTSVG
             path='/media/icons/duotune/general/gen060.svg'
             className={clsx('theme-dark-hide', toggleBtnIconClass)}

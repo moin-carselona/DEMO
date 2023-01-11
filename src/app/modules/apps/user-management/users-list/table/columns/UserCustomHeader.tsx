@@ -11,6 +11,7 @@ type Props = {
   tableProps: PropsWithChildren<HeaderProps<User>>
 }
 const UserCustomHeader: FC<Props> = ({className, title, tableProps}) => {
+  console.log('className', className);
   const id = tableProps.column.id
   const {state, updateState} = useQueryRequest()
 
@@ -20,6 +21,7 @@ const UserCustomHeader: FC<Props> = ({className, title, tableProps}) => {
   const order: 'asc' | 'desc' | undefined = useMemo(() => state.order, [state])
 
   const sortColumn = () => {
+    console.log("asdasdsad", id, initialQueryState, isSelectedForSorting, order)
     // avoid sorting for these columns
     if (id === 'actions' || id === 'selection') {
       return

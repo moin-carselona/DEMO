@@ -3,6 +3,11 @@ export interface AuthModel {
   refreshToken?: string
 }
 
+export interface LoginModel {
+  email: string,
+  password: string,
+}
+
 export interface UserAddressModel {
   addressLine: string
   city: string

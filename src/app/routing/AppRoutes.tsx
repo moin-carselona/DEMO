@@ -11,6 +11,7 @@ import {PrivateRoutes} from './PrivateRoutes'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {Logout, AuthPage, useAuth} from '../modules/auth'
 import {App} from '../App'
+import Constants from '../consts/Consts'
 
 /**
  * Base URL of the website.
@@ -18,17 +19,17 @@ import {App} from '../App'
  * @see https://facebook.github.io/create-react-app/docs/using-the-public-folder
  */
 const {PUBLIC_URL} = process.env
-console.log('PUBLIC_URL', PUBLIC_URL);
 
 const AppRoutes: FC = () => {
-  const {currentUser} = useAuth()
+  const {auth} = useAuth();
+  const token = localStorage.getItem(Constants.token);
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route element={<App />}>
           <Route path='error/*' element={<ErrorsPage />} />
           <Route path='logout' element={<Logout />} />
-          {currentUser ? (
+          {token ? (
             <>
               <Route path='/*' element={<PrivateRoutes />} />
               <Route index element={<Navigate to='/dashboard' />} />
