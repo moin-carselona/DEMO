@@ -19,20 +19,10 @@ import {
 } from '../partials'
 import { MenuComponent } from '../assets/ts/components'
 import { MessengerChatBoxDrawer } from '../../app/consts/Chats/MessengerChatBoxDrawer'
-import { GetChatGeneralApiReplies } from '../../app/modules/TicketsList/API'
-import { useSelector } from 'react-redux'
 const MasterLayout = () => {
-  // const localKeyCheck = JSON.parse(localStorage.getItem("API") || "0")
-  // const ticketData = useSelector((store: any) => store.ChatReducers.TicketData)
-  // const [ticketreplies, setTicketReplies] = useState<any>([])
-  // async function TicketReplies() {
-  //   const response = await GetChatGeneralApiReplies({ "ticketid": ticketData?.id }, localKeyCheck)
-  //   setTicketReplies(response.data)
-  //   // setloading2(true)
-  // }
+
   const location = useLocation()
   const urlEndPoint = window.location.pathname.split("/")
-  // console.log('location', location);
   useEffect(() => {
     setTimeout(() => {
       MenuComponent.reinitialization()

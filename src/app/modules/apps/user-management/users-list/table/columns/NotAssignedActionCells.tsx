@@ -11,8 +11,6 @@ import axios from 'axios'
 import React from 'react'
 import { useCallback } from 'react'
 import { Dialog } from '@mui/material'
-import AssignerCleanerComponent from '../../../../../stats/StatsItems/AssignerCleanerComponent'
-import ChangeCleanerComponent from '../../../../../stats/StatsItems/ChangeCleanerComponent'
 import { useDispatch } from 'react-redux'
 type Props = {
   id: ID
@@ -126,7 +124,7 @@ const NotAssignedActionCells: FC<Props> = ({ referece, id, data }) => {
           </a>
         </div>
       </div>
-      {isAssignCleanerOpen && <Dialog
+      {/* {isAssignCleanerOpen && <Dialog
         open={true}
         onClose={handleCloseModal}
         aria-labelledby="alert-dialog-title"
@@ -141,7 +139,7 @@ const NotAssignedActionCells: FC<Props> = ({ referece, id, data }) => {
         aria-describedby="alert-dialog-description"
       >
         <ChangeCleanerComponent selectedId={selectedId} />
-      </Dialog>}
+      </Dialog>} */}
     </>
   )
 }

@@ -1,18 +1,9 @@
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
-import AssignChangeSlabsForm from '../app/modules/ActiveCleaner/DialogBox/AssignChangeSlabsForm'
 import { KTSVG } from '../_metronic/helpers'
 import ActiveStatsData from '../Dashboard/components/ActiveStatsData/ActiveStatsData'
-import AssignAllowanceChange from '../app/modules/ActiveCleaner/DialogBox/AssignAllowanceChange'
-import GivePoints from '../app/modules/ActiveCleaner/DialogBox/GivePoints'
-import ViewLoans from '../app/modules/ActiveCleaner/DialogBox/ViewLoans'
-import AssignSuperVisor from '../app/modules/ActiveCleaner/DialogBox/AssignSuperVisor'
-import ChangeDateDrawerForm from '../app/modules/cleaner/cleaner-items/ChangeDateDrawerForm'
-import AddBankAccountListDrawer from '../app/modules/ActiveCleaner/DropBox/AddBankAccountListDrawer'
-import AddAccountTable from '../app/modules/ActiveCleaner/AddAccountTable/AddAccountTable'
 const ListDrawer: FC = () => {
     const drawerRefrence = useSelector((store: any) => store?.ActiveStatsReducer.listDrawer)
-    // console.log('drawerRefrence', drawerRefrence);CustomerListData
     return (
         <div
             id='kt_activities2'
@@ -29,8 +20,7 @@ const ListDrawer: FC = () => {
             <div className='card shadow-none rounded-0'>
                 <div className='card-header' id='kt_activities_header'>
                     <h3 className='card-title fw-bolder text-dark'>
-                
-                        {drawerRefrence === "AsignChange" ? "Assign/Change Slabs" : drawerRefrence == "activeStats" ? "Active Stats" : drawerRefrence == "AllownceAssign" ? "Assign Allowance" : drawerRefrence == "giveRewards" ? "Give Rewards" : drawerRefrence =="viewLoans" ? "View Loans" :  drawerRefrence == "assignSuper" ? "Assign Super Visor" : drawerRefrence ==  "AddBankAccount" ? "Add Bank Account" : ""
+                        {drawerRefrence === "AsignChange" ? "Assign/Change Slabs" : drawerRefrence == "activeStats" ? "Active Stats" : drawerRefrence == "AllownceAssign" ? "Assign Allowance" : drawerRefrence == "giveRewards" ? "Give Rewards" : drawerRefrence == "viewLoans" ? "View Loans" : drawerRefrence == "assignSuper" ? "Assign Super Visor" : drawerRefrence == "AddBankAccount" ? "Add Bank Account" : ""
                         }
                     </h3>
                     <div className='card-toolbar'>
@@ -45,7 +35,7 @@ const ListDrawer: FC = () => {
                 </div>
                 <div className='card-body position-relative' id='kt_activities_body'>
                     {
-                        drawerRefrence === "AsignChange" ? <AssignChangeSlabsForm></AssignChangeSlabsForm> : drawerRefrence == "activeStats" ? <ActiveStatsData></ActiveStatsData> : drawerRefrence == "AllownceAssign" ? <AssignAllowanceChange></AssignAllowanceChange> : drawerRefrence == "giveRewards" ? <GivePoints></GivePoints> : drawerRefrence =="viewLoans" ? <ViewLoans></ViewLoans> : drawerRefrence == "assignSuper" ? <AssignSuperVisor></AssignSuperVisor> : drawerRefrence ==  "AddBankAccount" ? <AddAccountTable></AddAccountTable> : "" 
+                        drawerRefrence == "activeStats" ? <ActiveStatsData></ActiveStatsData> : ""
                     }
                 </div>
             </div>

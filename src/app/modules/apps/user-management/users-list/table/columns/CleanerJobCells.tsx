@@ -10,12 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react'
 import axios from 'axios'
 import { Dialog } from "@mui/material";
-import AssignerCleanerComponent from '../../../../../stats/StatsItems/AssignerCleanerComponent'
-import UpdateSubscriptionComponent from '../../../../../stats/StatsItems/UpdateSubscriptionComponent'
-import ChangeCleanerComponent from '../../../../../stats/StatsItems/ChangeCleanerComponent'
-import CreateTaskComponent from '../../../../../stats/StatsItems/CreateTaskComponent'
 import { toast } from 'react-toastify'
-import UpdateStatusComponent from '../../../../../stats/StatsItems/UpdateStatusComponent'
 
 type Props = {
     id: ID,
@@ -212,7 +207,7 @@ const CleanerJobCells: FC<Props> = ({ id, data }) => {
             </div>
             {/* end::Menu */}
 
-            {createTask && <Dialog
+            {/* {createTask && <Dialog
                 open={true}
                 onClose={handleCloseModal}
                 aria-labelledby="alert-dialog-title"
@@ -255,7 +250,7 @@ const CleanerJobCells: FC<Props> = ({ id, data }) => {
                 aria-describedby="alert-dialog-description"
             >
                 <UpdateStatusComponent selectedId={selectedId} data={data} />
-            </Dialog>}
+            </Dialog>} */}
         </>
     )
 }

@@ -13,7 +13,6 @@ import { Step4 } from './steps/Step4'
 import { Step5 } from './steps/Step5'
 import { useSelector } from 'react-redux'
 import React from "react"
-import DialogBox from '../../../../app/modules/Notification/DialogBox/DialogBox'
 type Props = {
   show: boolean
   handleClose: () => void
@@ -77,7 +76,7 @@ const CreateAppModal = ({ show, handleClose, handleCreateTemplatesPop, createTem
   }
   return createPortal(
     CardTemplate == "create_notify_template" ? <>
-      {createTemplatesPop && <DialogBox handleCreateTemplatesPop={handleCreateTemplatesPop} />}
+      {/* {createTemplatesPop && <DialogBox handleCreateTemplatesPop={handleCreateTemplatesPop} />} */}
     </>
       :
       <Modal

@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import React from 'react'
 import { Dialog } from '@mui/material'
-import AssignerCleanerComponent from '../../../../../stats/StatsItems/AssignerCleanerComponent'
-import ChangeCleanerComponent from '../../../../../stats/StatsItems/ChangeCleanerComponent'
 import ChangeStatusComponent from './ChangeStatusComponent'
 
 type Props = {
@@ -128,7 +126,7 @@ const OnDemandActionCells: FC<Props> = ({ id }) => {
         </div>
       </div>
 
-      {isAssignCleanerOpen && <Dialog
+      {/* {isAssignCleanerOpen && <Dialog
         open={true}
         onClose={handleCloseModal}
         aria-labelledby="alert-dialog-title"
@@ -154,7 +152,7 @@ const OnDemandActionCells: FC<Props> = ({ id }) => {
         aria-describedby="alert-dialog-description"
       >
         <ChangeStatusComponent selectedId={selectedId} />
-      </Dialog>}
+      </Dialog>} */}
     </>
   )
 }

@@ -3,8 +3,6 @@ import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { KTSVG } from '../../../_metronic/helpers'
-import { ChatBox } from '../../modules/TicketsList/ChatBox'
-import DialogBox from '../../modules/TicketsList/DialogBox/DialogBox'
 const MessengerChatBoxDrawer: FC = () => {
   const TicketData = useSelector((store: any) => store.ChatReducers.TicketData)
   const [PopOpenClose, setPopOpenClose] = React.useState(false)
@@ -56,8 +54,8 @@ const MessengerChatBoxDrawer: FC = () => {
             </div>
           </div>
         </div>
-        <ChatBox isDrawer={true}></ChatBox>
-        {PopOpenClose && <DialogBox handleTicketlistPopform={TicketCustomerInformationPopupBTN} PopUpPostFormOpen={PopOpenClose} ParentData={null} reference={"ChatGlobal"}/>}
+        {/* <ChatBox isDrawer={true}></ChatBox>
+        {PopOpenClose && <DialogBox handleTicketlistPopform={TicketCustomerInformationPopupBTN} PopUpPostFormOpen={PopOpenClose} ParentData={null} reference={"ChatGlobal"}/>} */}
       </div>
     </div>
   )

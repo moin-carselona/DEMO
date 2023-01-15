@@ -10,8 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { Dialog } from '@mui/material'
 import React from 'react'
-import AssignerCleanerComponent from '../../../../../stats/StatsItems/AssignerCleanerComponent'
-import ChangeCleanerComponent from '../../../../../stats/StatsItems/ChangeCleanerComponent'
 
 type Props = {
   id: ID
@@ -128,7 +126,7 @@ const RenewalActionCells: FC<Props> = ({ id }) => {
         </div>
       </div>
 
-      {isAssignCleanerOpen && <Dialog
+      {/* {isAssignCleanerOpen && <Dialog
         open={true}
         onClose={handleCloseModal}
         aria-labelledby="alert-dialog-title"
@@ -144,7 +142,7 @@ const RenewalActionCells: FC<Props> = ({ id }) => {
         aria-describedby="alert-dialog-description"
       >
         <ChangeCleanerComponent selectedId={selectedId} />
-      </Dialog>}
+      </Dialog>} */}
     </>
   )
 }

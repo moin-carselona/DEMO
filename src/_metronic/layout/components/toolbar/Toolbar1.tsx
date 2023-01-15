@@ -7,7 +7,6 @@ import { CreateAppModal } from '../../../partials'
 import { useLayout } from '../../core'
 import { DefaultTitle } from '../header/page-title/DefaultTitle'
 import React from "react"
-import GoogleAutocompleteAddress from '../../../../app/modules/AreaCleanerAvailibiltybyAddress/GoogleAutocompleteAddress/GoogleAutocompleteAddress'
 const Toolbar1 = () => {
   React.useEffect(() => {
     const onclickeBaseURLChange = JSON.parse(localStorage.getItem("ischecked") || "0")
@@ -45,14 +44,6 @@ const Toolbar1 = () => {
     }
   }, [localKey])
   const urlEndPoint = window.location.pathname.split("/")
-  {
-    urlEndPoint[urlEndPoint.length - 1] === "area-wise-cleaner" &&
-    <div className='me-4'>
-      <GoogleAutocompleteAddress></GoogleAutocompleteAddress>
-    </div>
-  }
-  // console.log('urlEndPoint', urlEndPoint[urlEndPoint.length - 1]);
-  // console.log('===========================================global menu ', "moin-moin-moin-moin-moin-moin-moin-moin-moin-");
   return (
     <>
       <div className='toolbar' id='kt_toolbar'>
@@ -62,15 +53,6 @@ const Toolbar1 = () => {
         >
           <DefaultTitle />
           <div className='d-flex align-items-center py-1'>
-            {/* area-wise-cleaner cleaner list seacrh box ======================================================  */}
-            {
-              urlEndPoint[urlEndPoint.length - 1] === "area-wise-cleaner" &&
-              <div className='me-4'>
-                <GoogleAutocompleteAddress></GoogleAutocompleteAddress>
-              </div>
-            }
-            {/* area-wise-cleaner cleaner list seacrh box ========================================================= */}
-            {/* to toggle running api into test admin or live admin==============================================   */}
             <div className='me-2'>
               {/* begin::Menu */}
               {
@@ -87,7 +69,6 @@ const Toolbar1 = () => {
                 </a>
               }
             </div>
-            {/* to toggle running api into test admin or live admin ==================================================  */}
             {/* Notification template form page ===================================================================  */}
             {
               CardTemplate == "create_notify_template" ?

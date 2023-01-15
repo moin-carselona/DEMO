@@ -17,10 +17,6 @@ import {useListView} from '../../core/ListViewProvider'
 import {useQueryResponse} from '../../core/QueryResponseProvider'
 import {deleteUser} from '../../core/_requests'
 // import AssignerCleanerComponent from '../../../../../stats/StatsItems/AssignerCleanerComponent'
-import UpdateSubscriptionComponent from '../../../../../stats/StatsItems/UpdateSubscriptionComponent'
-import ChangeCleanerComponent from '../../../../../stats/StatsItems/ChangeCleanerComponent'
-import ChangTimeSlotComponent from '../../../../../stats/StatsItems/ChangeTimeSlotComponent'
-import CleanerAvailability from '../../../../../cleaner/cleaner-items/CleanerAvailability'
 import { useDispatch } from 'react-redux'
 
 type Props = {
@@ -213,7 +209,7 @@ const UserActionsCell: FC<Props> = ({referece, id, data}) => {
       </div>
       {/* end::Menu */}
 
-      {open && (
+      {/* {open && (
         <Dialog
           maxWidth={'xl'}
           open={true}
@@ -221,50 +217,15 @@ const UserActionsCell: FC<Props> = ({referece, id, data}) => {
           aria-labelledby='alert-dialog-title'
           aria-describedby='alert-dialog-description'
         >
-          {/* <AssignerCleanerComponent selectedId={selectedId} /> */}
           <CleanerAvailability
             subscriptionId={id}
             distenceRadius={'10'}
             handleCloseIconModal={handleCloseModal}
           />
         </Dialog>
-      )}
+      )} */}
 
-      {isStatusOpen && (
-        <Dialog
-          open={true}
-          maxWidth={'xl'}
-          onClose={handleCloseModal}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'
-        >
-          <UpdateSubscriptionComponent selectedId={selectedId} />
-        </Dialog>
-      )}
-
-      {assignCleanerOpen && (
-        <Dialog
-          open={true}
-          maxWidth={'xl'}
-          onClose={handleCloseModal}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'
-        >
-          <ChangeCleanerComponent selectedId={selectedId} />
-        </Dialog>
-      )}
-
-      {timeSlotOpen && (
-        <Dialog
-          open={true}
-          maxWidth={'xl'}
-          onClose={handleCloseModal}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'
-        >
-          <ChangTimeSlotComponent selectedId={selectedId} />
-        </Dialog>
-      )}
+      
     </>
   )
 }
