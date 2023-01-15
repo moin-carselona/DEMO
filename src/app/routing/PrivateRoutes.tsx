@@ -8,17 +8,16 @@ import { WithChildren } from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import { PageTitle } from '../../_metronic/layout/core'
 import { MasterLayoutDrawer } from '../../MasterDrawerListCommon/MasterLayoutDrawer'
-import DashboardRoute from '../../Dashboard/components/DashboardRoute'
+import DashboardWrapper from '../../Dashboard/Dashboard'
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
-  const ProfilePage2 = lazy(() => import('../modules/DashboarCommon/ProfilePages'))
+  const ReactMainPageRoute = lazy(() => import('../routing/DynamicEndPoints/ReactIntervieweEndpoints/ReactMainPageRoute'))
   const WizardsPage = lazy(() => import('../modules/wizards/WizardsPage'))
   const AccountPage = lazy(() => import('../modules/accounts/AccountPage'))
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
   const SchedulesRoutes = lazy(() => import('../modules/RoutingEndPoints/SchedulesRoutes'))
-  const StatsPage = lazy(() => import('../modules/statistics/StatsPage'))
   return (
     <Routes>
       <Route element={<MasterLayout />}>
@@ -30,7 +29,7 @@ const PrivateRoutes = () => {
         {/* Redirect to Dashboard after success login/registartion */}
         <Route path='auth/*' element={<Navigate to='/dashboard' />} />
         {/* Pages */}
-        <Route path='dashboard' element={<DashboardRoute />} />
+        <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
         {/* Lazy Modules */}
@@ -43,10 +42,10 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='crafted/pages/tickets/*'
+          path='react/interview/questions/topics/*'
           element={
             <SuspensedView>
-              <ProfilePage2 />
+              <ReactMainPageRoute />
             </SuspensedView>
           }
         />
@@ -58,6 +57,14 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
+        {/* <Route
+          path='crafted/pages/tickets/*'
+          element={
+            <SuspensedView>
+              <ProfilePage2 />
+            </SuspensedView>
+          }
+        /> */}
         <Route
           path='crafted/widgets/*'
           element={
@@ -98,14 +105,7 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
-        <Route
-          path='apps/stats/*'
-          element={
-            <SuspensedView>
-              <StatsPage />
-            </SuspensedView>
-          }
-        />
+       
         {/* Page Not Found */}
         <Route path='*' element={<Navigate to='/error/404' />} />
       </Route>

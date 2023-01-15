@@ -69,20 +69,7 @@ const Toolbar1 = () => {
                 </a>
               }
             </div>
-            {/* Notification template form page ===================================================================  */}
             {
-              CardTemplate == "create_notify_template" ?
-                <a
-                  className='btn btn-sm btn-primary cursor-pointer'
-                  id='kt_toolbar_primary_button'
-                  data-bs-toggle='modal'
-                  data-bs-target='#kt_modal_create_app'
-                  onClick={() => handleCreateTemplatesPop()}
-                >
-                  Create Templates
-                </a> : ""
-            }
-            {/* {
               CardTemplate == "create_notify_template" ?
                 <a
                   className='btn btn-sm btn-primary cursor-pointer'
@@ -102,7 +89,7 @@ const Toolbar1 = () => {
                 >
                   Create
                 </a>
-            } */}
+            }
             {/* end::Button */}
           </div>
           {/* end::Actions */}

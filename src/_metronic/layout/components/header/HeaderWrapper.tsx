@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import clsx from 'clsx'
-import {Link} from 'react-router-dom'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
-import {useLayout} from '../../core'
-import {Header} from './Header'
-import {DefaultTitle} from './page-title/DefaultTitle'
-import {Topbar} from './Topbar'
-
+import { Link } from 'react-router-dom'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
+import { useLayout } from '../../core'
+import { Header } from './Header'
+import { DefaultTitle } from './page-title/DefaultTitle'
+import { Topbar } from './Topbar'
 export function HeaderWrapper() {
-  const {config, classes, attributes} = useLayout()
-  const {header, aside} = config
-
+  const { config, classes, attributes } = useLayout()
+  const { header, aside } = config
   return (
     <div
       id='kt_header'
@@ -44,7 +42,6 @@ export function HeaderWrapper() {
           </div>
         )}
         {/* end::Logo */}
-
         {aside.display && (
           <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
             <Link to='/' className='d-lg-none'>
@@ -52,22 +49,19 @@ export function HeaderWrapper() {
             </Link>
           </div>
         )}
-
         {/* begin::Wrapper */}
         <div className='d-flex align-items-stretch justify-content-between flex-lg-grow-1'>
           {/* begin::Navbar */}
           {header.left === 'menu' && (
             <div className='d-flex align-items-stretch' id='kt_header_nav'>
-              <Header />
+              {/* <Header /> */} 
             </div>
           )}
-
-          {header.left === 'page-title' && (
+          {/* {header.left === 'page-title' && (
             <div className='d-flex align-items-center' id='kt_header_nav'>
               <DefaultTitle />
             </div>
-          )}
-
+          )} */}
           <div className='d-flex align-items-stretch flex-shrink-0'>
             <Topbar />
           </div>

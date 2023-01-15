@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useSelector } from 'react-redux'
 import { KTSVG } from '../_metronic/helpers'
-import ActiveStatsData from '../Dashboard/components/ActiveStatsData/ActiveStatsData'
+// import ActiveStatsData from '../Dashboard/components/ActiveStatsData/ActiveStatsData'
 const ListDrawer: FC = () => {
     const drawerRefrence = useSelector((store: any) => store?.ActiveStatsReducer.listDrawer)
     return (
@@ -33,11 +33,11 @@ const ListDrawer: FC = () => {
                         </button>
                     </div>
                 </div>
-                <div className='card-body position-relative' id='kt_activities_body'>
+                {/* <div className='card-body position-relative' id='kt_activities_body'>
                     {
                         drawerRefrence == "activeStats" ? <ActiveStatsData></ActiveStatsData> : ""
                     }
-                </div>
+                </div> */}
             </div>
         </div>
     )

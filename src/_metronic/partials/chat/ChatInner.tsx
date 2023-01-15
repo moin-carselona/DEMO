@@ -53,7 +53,6 @@ const ChatInner: FC<Props> = (props, { isDrawer = false }) => {
   // }
 
   const sendMessage = (e: React.MouseEvent) => {
-    console.log("chat runned")
     // console.log("sda", userData.id)
     // console.log("sda", tickets)
     // const isPrivateMessage = e.currentTarget.id === 'private-message';
@@ -99,7 +98,7 @@ const ChatInner: FC<Props> = (props, { isDrawer = false }) => {
         }
         data-kt-scroll-offset={isDrawer ? '0px' : '-2px'}
       >
-        {ticketreplies && ticketreplies.data?.map((message: any, index: number) => {
+        {ticketreplies && ticketreplies?.data?.map((message: any, index: number) => {
           const state = message.status == 1 ? 'info' : 'primary'
           const templateAttr = {}
           if (message.template) {
@@ -199,7 +198,7 @@ const ChatInner: FC<Props> = (props, { isDrawer = false }) => {
         </div>
 
 
-        <div className='d-flex flex-stack mt-3'>
+        {/* <div className='d-flex flex-stack mt-3'>
           <div className='d-flex align-items-center me-2'>
             <select
               className='form-select form-select-solid'>
@@ -223,7 +222,7 @@ const ChatInner: FC<Props> = (props, { isDrawer = false }) => {
           >
             Update
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   )

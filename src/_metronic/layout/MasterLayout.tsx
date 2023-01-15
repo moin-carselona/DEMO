@@ -20,7 +20,6 @@ import {
 import { MenuComponent } from '../assets/ts/components'
 import { MessengerChatBoxDrawer } from '../../app/consts/Chats/MessengerChatBoxDrawer'
 const MasterLayout = () => {
-
   const location = useLocation()
   const urlEndPoint = window.location.pathname.split("/")
   useEffect(() => {
@@ -43,6 +42,7 @@ const MasterLayout = () => {
             <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
               {urlEndPoint[urlEndPoint.length - 1] === "area-wise-cleaner" && <Toolbar />}
               {urlEndPoint[urlEndPoint.length - 1] === "dashboard" && <Toolbar />}
+              <Toolbar />
               <div className='post d-flex flex-column-fluid' id='kt_post'>
                 <Content>
                   <Outlet />
@@ -57,7 +57,7 @@ const MasterLayout = () => {
         <ListDrawer />
         <RightToolbar />
         <DrawerMessenger />
-         <MessengerChatBoxDrawer></MessengerChatBoxDrawer> 
+        <MessengerChatBoxDrawer></MessengerChatBoxDrawer>
         {/* end:: Drawers */}
         {/* begin:: Modals */}
         {/* <InviteUsers /> */}

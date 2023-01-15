@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import React, {FC} from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import React, { FC } from 'react'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 import {
   HeaderNotificationsMenu,
   HeaderUserMenu,
@@ -8,16 +8,13 @@ import {
   Search,
   ThemeModeSwitcher,
 } from '../../../partials'
-import {useLayout} from '../../core'
-
+import { useLayout } from '../../core'
 const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonHeightClass = 'w-30px h-30px w-md-40px h-md-40px',
   toolbarUserAvatarHeightClass = 'symbol-30px symbol-md-40px',
   toolbarButtonIconSizeClass = 'svg-icon-1'
-
 const Topbar: FC = () => {
-  const {config} = useLayout()
-
+  const { config } = useLayout()
   return (
     <div className='d-flex align-items-stretch flex-shrink-0'>
       {/* Search */}
@@ -25,8 +22,8 @@ const Topbar: FC = () => {
         <Search />
       </div>
       {/* Activities */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         {/* begin::Drawer toggle */}
+      {/* <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         <div
           className={clsx(
             'btn btn-icon btn-active-light-primary btn-custom',
@@ -39,12 +36,11 @@ const Topbar: FC = () => {
             className={toolbarButtonIconSizeClass}
           />
         </div>
+      </div> */}
         {/* end::Drawer toggle */}
-      </div>
-
       {/* NOTIFICATIONS */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         {/* begin::Menu- wrapper */}
+      {/* <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         <div
           className={clsx(
             'btn btn-icon btn-active-light-primar btn-custom',
@@ -61,12 +57,11 @@ const Topbar: FC = () => {
           />
         </div>
         <HeaderNotificationsMenu />
+      </div> */}
         {/* end::Menu wrapper */}
-      </div>
-
-      {/* CHAT */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
+      {/* CHAT ================================================================================== */}
         {/* begin::Menu wrapper */}
+      {/* <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         <div
           className={clsx(
             'btn btn-icon btn-active-light-primary btn-custom position-relative',
@@ -78,15 +73,13 @@ const Topbar: FC = () => {
             path='/media/icons/duotune/communication/com012.svg'
             className={toolbarButtonIconSizeClass}
           />
-
           <span className='bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink'></span>
         </div>
+      </div> */}
         {/* end::Menu wrapper */}
-      </div>
-
-      {/* Quick links */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-        {/* begin::Menu wrapper */}
+      {/* Quick links ======================================================================*/}
+      {/* start::Menu wrapper */}
+      {/* <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         <div
           className={clsx(
             'btn btn-icon btn-active-light-primary btn-custom',
@@ -103,9 +96,8 @@ const Topbar: FC = () => {
           />
         </div>
         <QuickLinks />
-        {/* end::Menu wrapper */}
-      </div>
-
+      </div> */}
+      {/* end::Menu wrapper ========================================================================= */}
       {/* begin::Theme mode */}
       <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
         <ThemeModeSwitcher
@@ -113,7 +105,6 @@ const Topbar: FC = () => {
         />
       </div>
       {/* end::Theme mode */}
-
       {/* begin::User */}
       <div
         className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}
@@ -133,7 +124,6 @@ const Topbar: FC = () => {
         {/* end::Toggle */}
       </div>
       {/* end::User */}
-
       {/* begin::Aside Toggler */}
       {config.header.left === 'menu' && (
         <div className='d-flex align-items-center d-lg-none ms-2 me-n3' title='Show header menu'>
@@ -148,5 +138,4 @@ const Topbar: FC = () => {
     </div>
   )
 }
-
-export {Topbar}
+export { Topbar }

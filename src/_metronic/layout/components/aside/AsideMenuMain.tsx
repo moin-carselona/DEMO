@@ -3,6 +3,7 @@ import React from 'react'
 import { useIntl } from 'react-intl'
 import { AsideMenuItemWithSub } from './AsideMenuItemWithSub'
 import { AsideMenuItem } from './AsideMenuItem'
+import { ReactsInterviewRoutes } from './A2zRoutes/ReactsEndPoints/ReactsInterviewRoutes'
 export function AsideMenuMain() {
   const intl = useIntl()
   return (
@@ -21,11 +22,11 @@ export function AsideMenuMain() {
       /> */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>pages</span>
+          <span className='menu-section text-uppercase fs-8 ls-1 text-white' style={{color:"white"}}>INTERVIEW QUE & ANS</span>
         </div>
       </div>
       {/* pages section  ========================================================================== */}
-      <AsideMenuItemWithSub
+      {/* <AsideMenuItemWithSub
         to='/crafted/pages'
         title='Pages'
         fontIcon='bi-archive'
@@ -50,31 +51,37 @@ export function AsideMenuMain() {
           />
           <AsideMenuItem to='/crafted/pages/wizards/vertical' title='Vertical' hasBullet={true} />
         </AsideMenuItemWithSub>
-      </AsideMenuItemWithSub>
+      </AsideMenuItemWithSub> */}
       {/* pages section  ========================================================================== */}
+      {/* ReactInterviewroutes ====================================================================  */}
+      {ReactsInterviewRoutes()}
+      {/* ReactInterviewroutes ====================================================================  */}
       {/* schedule here start ===================================================== */}
-      <AsideMenuItemWithSub
+      {/* <AsideMenuItemWithSub
         to='/schedule/cleaner'
         title='Schedules'
         fontIcon='bi-chat-left'
         icon='/media/icons/duotune/communication/com012.svg'
       >
         <AsideMenuItem to='/schedule/cleaner/job-list' title='Job List' hasBullet={true} />
-      </AsideMenuItemWithSub>
+      </AsideMenuItemWithSub> */}
       {/* schedule here start ===================================================== */}
-      <AsideMenuItem
+      {/* user managements here start ===================================================== */}
+      {/* <AsideMenuItem
         to='/apps/user-management/users'
         icon='/media/icons/duotune/general/gen051.svg'
         title='User management'
         fontIcon='bi-layers'
-      />
+      /> */}
       {/* <AsideMenuItem
         to='/apps/statistics'
         icon='/media/icons/duotune/general/gen051.svg'
         title='Stats'
         fontIcon='bi-layers'
       /> */}
-      <AsideMenuItemWithSub
+
+      {/* chat ================================================================================================== */}
+      {/* <AsideMenuItemWithSub
         to='/apps/chat'
         title='Chat'
         fontIcon='bi-chat-left'
@@ -83,12 +90,14 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/apps/chat/private-chat' title='Private Chat' hasBullet={true} />
         <AsideMenuItem to='/apps/chat/group-chat' title='Group Chart' hasBullet={true} />
         <AsideMenuItem to='/apps/chat/drawer-chat' title='Drawer Chart' hasBullet={true} />
-      </AsideMenuItemWithSub>
+      </AsideMenuItemWithSub> */}
       <div className='menu-item'>
         <div className='menu-content'>
           <div className='separator mx-1 my-4'></div>
         </div>
       </div>
+      {/* chat ================================================================================================== */}
+
       {/* <div className='menu-item'>
         <a
           target='_blank'
@@ -111,8 +120,6 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/all/Societies' title='NEW FEATURES' hasBullet={true} />
       </AsideMenuItemWithSub>
       {/* react-table side menu   */}
-    
-     
     </>
   )
 }
